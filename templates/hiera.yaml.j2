@@ -7,6 +7,7 @@
   # Use public hieradata second, also be environmentally aware
   - "%{::environment}/hiera/fqdn/%{::fqdn}"
   - "%{::environment}/hiera/group/%{group}" # no :: because group is set at nodescope
+  - "%{::environment}/hiera/users"
   - "%{::environment}/hiera/common"
 :backends:
   - yaml
