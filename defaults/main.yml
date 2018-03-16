@@ -17,3 +17,5 @@ puppet_hiera_datadir: '/opt/system-config/'
 puppet_environment_basedir: '/opt/system-config/'
 puppet_environment: production
 puppet_timeout: 30m
+puppet_copy_system_modules: true
+puppet_vendor_modules_dir: ""

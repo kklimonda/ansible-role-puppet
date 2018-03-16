@@ -50,6 +50,13 @@
     synchronize:
       src: /etc/puppet/modules
       dest: /etc/puppet
+    when: puppet_copy_system_modules == true
+
+  - name: copy vendor puppet modules
+    synchronize:
+      src: "{{ puppet_vendor_modules_dir }}"
+      dest: "/etc/puppet/modules/"
+    when: puppet_vendor_modules_dir != ''
 
   when:
   - copy_puppet
