@@ -10,6 +10,7 @@ puppet_server: puppet
 certname: "{{ ansible_fqdn }}"
 puppet_data_binding_terminus: hiera
 puppet_reports: store
+puppet_modules_dir: "{{ manifest_base }}/{{ puppet_environment }}"
 puppet_basemodulepath: '$confdir/modules'
 puppet_environmentpath: '$confdir/environments'
 puppet_hiera_datadir: '/opt/system-config/'

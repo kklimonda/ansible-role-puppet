@@ -36,7 +36,7 @@
 - block:
   - name: copy puppet modules
     synchronize:
-      src: "{{ manifest_base }}/{{ puppet_environment }}"
+      src: "{{ puppet_modules_dir }}"
       dest: "{{ manifest_base }}"
 
   - name: ensure hieradata manifest link is present
