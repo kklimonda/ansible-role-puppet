@@ -19,4 +19,5 @@ puppet_environment: production
 puppet_timeout: 30m
 puppet_copy_system_modules: true
 puppet_vendor_modules_dir: ""
+puppet_site_modules_dir: "{{ puppet_environment_basedir }}{{ puppet_environment }}/modules"
 puppet_manifests_path: ""
