@@ -26,6 +26,17 @@
       mode: 0600
     with_items: "{{ hiera_file_paths.paths|default() }}"
 
+  - name: Ensure that the {{ puppet_environment }} directory exists
+    file:
+      path: "{{ manifest_base }}/{{ puppet_environment }}"
+      state: directory
+
+  - name: Synchronize public hiera to the host
+    synchronize:
+      src: "{{ puppet_hiera_public_path }}"
+      dest: "{{ manifest_base }}/production/hiera"
+    when: puppet_hiera_public_path != ""
+
   - name: Write ansible-provided secrets
     copy:
       content: "{{ hiera_variables }}"
