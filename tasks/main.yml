@@ -52,6 +52,12 @@
       dest: /etc/puppet
     when: puppet_copy_system_modules == true
 
+  - name: copy main puppet manifest
+    synchronize:
+      src: "{{ puppet_manifests_path }}"
+      dest: "{{ manifest_base }}/"
+    when: puppet_manifests_path != ''
+
   - name: copy vendor puppet modules
     synchronize:
       src: "{{ puppet_vendor_modules_dir }}"
