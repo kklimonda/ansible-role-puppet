@@ -29,7 +29,7 @@
   - name: Write hiera-provided secrets
     copy:
       content: "{{ hiera_variables }}"
-      dest: "{{ puppet_hiera_datadir }}/hieradata/{{ puppet_environment }}/ansible.json"
+      dest: "{{ hieradata }}/{{ puppet_environment }}/ansible.json"
 
   when: copy_hieradata
 
