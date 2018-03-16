@@ -26,6 +26,11 @@
       mode: 0600
     with_items: "{{ hiera_file_paths.paths|default() }}"
 
+  - name: Write hiera-provided secrets
+    copy:
+      content: "{{ hiera_variables }}"
+      dest: "{{ puppet_hiera_datadir }}/hieradata/{{ puppet_environment }}/ansible.json"
+
   when: copy_hieradata
 
 - block:

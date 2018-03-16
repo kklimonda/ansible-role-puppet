@@ -1,6 +1,8 @@
 ---
 :hierarchy:
-  # Use private hieradata first
+  # Use private hieradata first,
+  # Make ansible-provided variables override others
+  - "hieradata/%{::environment}/ansible"
   - "hieradata/%{::environment}/fqdn/%{::fqdn}"
   - "hieradata/%{::environment}/group/%{group}" # no :: because group is set at nodescope
   - "hieradata/%{::environment}/common"
@@ -10,6 +12,9 @@
   - "%{::environment}/hiera/users"
   - "%{::environment}/hiera/common"
 :backends:
+  - json
   - yaml
+:json:
+  :datadir: "{{ puppet_hiera_datadir }}"
 :yaml:
   :datadir: "{{ puppet_hiera_datadir }}"
